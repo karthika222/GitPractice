@@ -5,6 +5,10 @@
 git config --global user.name "Your Name"      # Set your username
 git config --global user.email "you@example.com"  # Set your email
 git config --list                              # View configuration
+git config --global --unset user.name          # Remove username setting
+git config --global --unset user.email         # Remove email setting
+git config --unset <key>                       # Remove specific config setting
+rm ~/.gitconfig                                # Delete entire global Git config file
 ```
 
 ## 🔹 Starting a Repository
@@ -43,12 +47,15 @@ git pull origin <branch>    # Fetch & merge from remote
 git fetch                   # Download latest changes (without merging)
 ```
 
-## 🔹 Undo / Fix
+## 🔹 Undo / Fix / Delete
 ```bash
 git reset <file>            # Unstage a file
 git reset --hard            # Discard all local changes
 git revert <commit-id>      # Undo a commit by creating a new one
 git checkout -- <file>      # Discard changes in a file
+git rm <file>               # Remove file from Git and working directory
+git rm --cached <file>      # Remove file from Git but keep in working directory
+git clean -fd               # Remove untracked files and directories
 ```
 
 ## 🔹 Stash (Temporary Save)
@@ -65,12 +72,3 @@ git blame <file>            # Show who changed each line
 git tag                     # List tags
 git tag <tag-name>          # Create a new tag
 ```
-
----
-
-## Quick Tips
-- Use `git status` frequently to check your repository state
-- Always write meaningful commit messages
-- Create branches for new features or experiments
-- Use `git pull` before pushing to avoid conflicts
-- `git stash` is perfect for temporarily saving work when switching branches
